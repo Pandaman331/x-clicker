@@ -1,4 +1,4 @@
-Init = require("core/init")
+Init = require("src/core/init")
 
 function love.load()
     Init.loadRequired()
