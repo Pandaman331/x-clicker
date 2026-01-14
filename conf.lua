@@ -2,7 +2,7 @@ function love.conf(t)
     t.version = "11.5"
     t.identity = "x-clicker"
 
-    t.window.title = "x-clicker alpha 1.0"
+    t.window.title = "x-clicker alpha 1.1"
     t.window.width = 800
     t.window.height = 600
     t.window.resizable = true
