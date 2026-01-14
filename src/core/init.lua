@@ -12,15 +12,15 @@ function Init.loadRequired()
   }
   Grid = require("src/logic/grid/grid")
   Player = require("src/objects/player")
-  KeyManagment = require("src/logic/keyManagment")
+  KeyManagment = require("src/logic/keyManagment/keyManagment")
   Renderer = require("src/ui/renderer")
   Timer = require("src/logic/timer")
 
-  KeyManagment.combo = 0
+  Player.combo = 0
   Timer.start()
 
-  Grid.generate(Settings.gameplay.gridSize)
   Player.init(1, 1, Settings.gameplay.initialTime)
+  Grid.generate(Settings.gameplay.gridSize)
 
   for i = 1, Settings.gameplay.initialPoints do
     Grid.spawnPoint(Player, Settings.gameplay.gridSize)

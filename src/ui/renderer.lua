@@ -27,7 +27,7 @@ function Renderer.draw()
 
   love.graphics.print("Time: " .. math.ceil(Player.time), 20, 20)
   love.graphics.print("Points: " .. Player.points, 20, 40)
-  love.graphics.print("Combo: " .. KeyManagment.combo, 20, 60)
+  love.graphics.print("Combo: " .. Player.combo, 20, 60)
 end
 
 return Renderer
