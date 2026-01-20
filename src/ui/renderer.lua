@@ -1,22 +1,27 @@
 local Renderer = {}
 
 function Renderer.draw()
-  startX = (love.graphics.getWidth() - (Settings.gameplay.gridSize * Settings.graphics.cellSize)) / 2
-  startY = (love.graphics.getHeight() - (Settings.gameplay.gridSize * Settings.graphics.cellSize)) / 2
+  local startX = (love.graphics.getWidth() - (Settings.gameplay.gridSize * Settings.graphics.cellSize)) / 2
+  local startY = (love.graphics.getHeight() - (Settings.gameplay.gridSize * Settings.graphics.cellSize)) / 2
 
   if Player.time > 0 then
     for i = 1, #Grid.data do
       for j = 1, #Grid.data[i] do
-        local cell = Grid.data[i][j]
-        local display = ""
-
         if i == Player.posY and j == Player.posX then
-          display = (cell == "x") and "[x]" or "[*]"
+          if Grid.data[i][j] == 201 then
+            love.graphics.print("[x]", startX + (j - 1) * Settings.graphics.cellSize,
+              startY + (i - 1) * Settings.graphics.cellSize, 0, 2, 2)
+          else
+            love.graphics.print("[*]", startX + (j - 1) * Settings.graphics.cellSize,
+              startY + (i - 1) * Settings.graphics.cellSize, 0, 2, 2)
+          end
+        elseif Grid.data[i][j] == 1 then
+          love.graphics.print(" * ", startX + (j - 1) * Settings.graphics.cellSize,
+            startY + (i - 1) * Settings.graphics.cellSize, 0, 2, 2)
         else
-          display = " " .. cell .. " "
+          love.graphics.print(" x ", startX + (j - 1) * Settings.graphics.cellSize,
+            startY + (i - 1) * Settings.graphics.cellSize, 0, 2, 2)
         end
-        love.graphics.print(display, startX + (j - 1) * Settings.graphics.cellSize,
-          startY + (i - 1) * Settings.graphics.cellSize, 0, 2, 2)
       end
     end
   else

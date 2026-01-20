@@ -1,6 +1,6 @@
 local function handleCollection()
-  if Grid.data[Player.posY][Player.posX] == "x" then
-    Grid.data[Player.posY][Player.posX] = "*"
+  if Grid.data[Player.posY][Player.posX] == 201 then
+    Grid.data[Player.posY][Player.posX] = 1
     Grid.spawnPoint(Player, Settings.gameplay.gridSize)
 
     if Player.combo < 9 then
