@@ -5,7 +5,7 @@ local function generateGrid(gridSize)
     data[row] = {}
 
     for col = 1, gridSize do
-      data[row][col] = "*"
+      data[row][col] = 1
     end
   end
 end
