@@ -5,7 +5,11 @@ function Grid.generate(size)
   for i = 1, size do
     Grid.data[i] = {}
     for j = 1, size do
-      Grid.data[i][j] = 1
+      Grid.data[i][j] = {
+        tile = 1,
+        wall = 0,
+        entity = 0
+      }
     end
   end
 end
@@ -15,8 +19,8 @@ function Grid.spawnPoint(Player, size)
   while not placed do
     local randomX = math.random(1, size)
     local randomY = math.random(1, size)
-    if not (randomX == Player.posX and randomY == Player.posY) and Grid.data[randomY][randomX] == 1 then
-      Grid.data[randomY][randomX] = 201
+    if not (randomX == Player.posX and randomY == Player.posY) and Grid.data[randomY][randomX].entity == 0 then
+      Grid.data[randomY][randomX].entity = 1
       placed = true
     end
   end

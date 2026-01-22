@@ -5,7 +5,11 @@ local function generateGrid(gridSize)
     data[row] = {}
 
     for col = 1, gridSize do
-      data[row][col] = 1
+      data[row][col] = {
+        tile = 1,
+        wall = 0,
+        entity = 0
+      }
     end
   end
 end
