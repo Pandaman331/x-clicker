@@ -2,7 +2,10 @@ Loader = require("src.core.loader.init")
 
 function love.load()
   Loader.init()
-  Loader.getModule({ "test" })
+  local sM = Loader.getModule({ "stateManager" })
+
+  sM.switch("gameplay")
+  sM.currentState.init()
 end
 
 function love.update(dt)

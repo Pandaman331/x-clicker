@@ -1,18 +1,18 @@
 local modulePaths = {
-
+  stateManager = "src.stateManager.init"
 }
 
 return function(required)
   local results = {}
 
-  for _, name in ipairs(required) do
+  for i, name in ipairs(required) do
     local selectedModulePath = modulePaths[name]
-    if selectedModulePath then
-      results[name] = require(selectedModulePath)
-    else
+    if not selectedModulePath then
       print("[FATAL]  Module not found: " .. name)
     end
+
+    results[i] = require(selectedModulePath)
   end
 
-  return results
+  return unpack(results)
 end
